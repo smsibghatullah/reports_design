@@ -271,7 +271,7 @@
         
         <xpath expr="//div[hasclass('clearfix')]" position="after">
           <t t-if="doc.discount_type == 'global'">
-            <div class="row">
+            <!-- <div class="row">
               <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'}">
                 <table class="table table-sm">
                   <tr class="border-black">
@@ -293,7 +293,7 @@
                   </tr>
                 </table>
               </div>
-            </div>
+            </div> -->
           </t>
         </xpath>
 
