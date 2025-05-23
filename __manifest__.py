@@ -6,8 +6,7 @@
     'author': 'DSM',
     'depends': ['base', 'web', 'sale','bi_sale_purchase_discount_with_tax'],  # Add 'account' if invoice reports
     'data': [
-        'report/report_template.xml',
-        'report/report_action.xml',
+        'report/templates.xml',
     ],
     'installable': True,
     'application': False,
