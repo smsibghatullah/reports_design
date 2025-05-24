@@ -18,7 +18,7 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale','bi_sale_purchase_discount_with_tax'],
+    'depends': ['base','sale','bi_sale_purchase_discount_with_tax','sh_amount_in_words'],
 
     # always loaded
     'data': [
