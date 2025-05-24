@@ -256,7 +256,7 @@
                     </div>
 
                     <div class="footer o_boxed_footer">
-                            <div class="text-center"  style="border: none; border-top: 3px solid black;">
+                            <div class="text-center"  style="border-top: 3px solid black;">
                                 <ul class="list-inline">
                                     <li t-if="company.phone" class="list-inline-item"><i class="fa fa-phone" role="img" aria-label="Phone" title="Phone"/> <span t-field="company.phone"/></li>
                                     <li t-if="company.email" class="list-inline-item"><i class="fa fa-at" role="img" aria-label="Email" title="Email"/> <span t-field="company.email"/></li>
