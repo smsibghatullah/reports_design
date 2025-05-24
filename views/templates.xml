@@ -1,6 +1,6 @@
 <odoo>
     <data>
-         <template id="sale.report_saleorder_document">
+      <template id="sale.report_saleorder_document">
                 <t t-call="web.external_layout">
                         <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
                         <t t-set="address">
@@ -46,11 +46,11 @@
                             </h2>
 
                             <div class="row mt32 mb32" id="informations">
-                                <div t-if="doc.client_order_ref" class="col-auto mw-100 mb-2">
+                                <div t-if="doc.client_order_ref" name="informations_reference" class="col-auto mw-100 mb-2">
                                     <strong>Your Reference:</strong>
                                     <p class="m-0" t-field="doc.client_order_ref"/>
                                 </div>
-                                <div t-if="doc.confirmation_date and doc.state not in ['draft','sent']" class="col-auto mw-100 mb-2">
+                                <div t-if="doc.confirmation_date and doc.state not in ['draft','sent']" name="informations_date" class="col-auto mw-100 mb-2">
                                     <strong>Date Ordered:</strong>
                                     <p class="m-0" t-field="doc.confirmation_date"/>
                                 </div>
@@ -66,7 +66,7 @@
                                     <strong>Payment Terms:</strong>
                                     <p class="m-0" t-field="doc.payment_term_id"/>
                                 </div>
-                                <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col-auto mw-100 mb-2">
+                                <div  t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col" name="expiration_date">
                                     <strong>Expiration Date:</strong>
                                     <p class="m-0" t-field="doc.validity_date"/>
                                 </div>
