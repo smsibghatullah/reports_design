@@ -1,7 +1,7 @@
 <odoo>
     <data>
    <template id="sale.report_saleorder_document">
-                    <t t-call="web.external_layout">
+            <t t-call="web.external_layout">
               <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
               <t t-set="forced_vat" t-value="doc.fiscal_position_id.foreign_vat"/> <!-- So that it appears in the footer of the report instead of the company VAT if it's set -->
               <t t-set="address">
@@ -264,7 +264,7 @@
                                     <!--IZŅEMAM ĀRĀ ŠO<li t-if="company.vat" class="list-inline-item"><t t-esc="company.country_id.vat_label or 'Tax ID'"/>: <span t-field="company.vat"/></li>-->
                                 </ul>
                                 <div t-if="report_type == 'pdf'" class="text-muted">
-                                    Page: <span class="page"/> / <span class="topage"/>
+                                    Lpp: <span class="page"/> / <span class="topage"/>
                                 </div>
                             </div>
                         </div>
