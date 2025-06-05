@@ -188,7 +188,7 @@
                                         </tr>
 
                                         <t t-foreach="doc.get_aggregated_taxes().items()" t-as="tax_data">
-                                            <tr style="border: none; border-bottom: 1px solid black;">
+                                            <tr >
                                                 <td style="padding: 8px 10px;">
                                                     <strong><t t-esc="tax_data[0]"/></strong>
                                                 </td>
