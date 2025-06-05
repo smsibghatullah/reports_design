@@ -56,7 +56,7 @@
                               <t t-else="">
                                   <strong style="font-weight: 900;" >Date:</strong>
                               </t>
-                          <div t-field="doc.order_date_formatted" t-options="{&quot;widget&quot;: &quot;date&quot;}"></div>
+                          <div t-field="doc.order_date_formatted" ></div>
                       </div>
                       <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col" name="expiration_date">
                              <t t-if="doc.partner_id.lang == 'en_US'">
