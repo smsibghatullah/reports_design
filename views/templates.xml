@@ -48,13 +48,13 @@
                           <strong t-if="is_proforma">Issued Date</strong>
                           <strong t-elif="doc.state in ['draft', 'sent']">Quotation Date</strong>
                           <t t-if="doc.partner_id.lang == 'en_US'">
-                                  <strong >Order Date:</strong>
+                                  <strong >Date:</strong>
                               </t>
                               <t t-elif="doc.partner_id.lang == 'lv_LV'">
                                   <strong >Datums:</strong>
                               </t>
                               <t t-else="">
-                                  <strong >Order Date:</strong>
+                                  <strong >Date:</strong>
                               </t>
                           <div t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}">2023-12-31</div>
                       </div>
@@ -177,8 +177,8 @@
                                         <tr style="border: none; border-bottom: 1px solid #dee2e6;border-top: 1px solid black;">
                                             <td style="padding: 8px 10px;">
                                                 <strong style="font-weight: 900;">
-                                                    <t t-if="lang == 'lv_LV'">Kopā</t>
-                                                    <t t-elif="lang == 'en_US'">Subtotal</t>
+                                                    <t t-if="doc.partner_id.lang == 'lv_LV'">Kopā</t>
+                                                    <t t-elif="doc.partner_id.lang == 'en_US'">Subtotal</t>
                                                     <t t-else="True"><t t-esc="_('Subtotal')"/></t>
                                                 </strong>
                                             </td>
@@ -201,8 +201,8 @@
                                         <tr style="border-top: 2px solid black;">
                                             <td style="padding: 10px 10px;">
                                                 <strong style="font-weight: 900;">
-                                                    <t t-if="lang == 'lv_LV'">Summa</t>
-                                                    <t t-elif="lang == 'en_US'">Total</t>
+                                                    <t t-if="doc.partner_id.lang == 'lv_LV'">Summa</t>
+                                                    <t t-elif="doc.partner_id.lang == 'en_US'">Total</t>
                                                     <t t-else="True"><t t-esc="_('Total')"/></t>
                                                 </strong>
                                             </td>
@@ -215,6 +215,16 @@
                             </div>
                             
                   </div>
+                   <div class="oe_structure mt-4">
+                            <p>
+                                <strong style="font-weight: 900;">
+                                    <t t-if="lang == 'lv_LV'">Summa vārdiem:</t>
+                                    <t t-elif="lang == 'en_US'">Amount in words:</t>
+                                    <t t-else="True"><t t-esc="_('Amount in words:')"/></t>
+                                </strong> 
+                                <t t-esc="doc.currency_id.with_context(lang=lang).amount_to_text(doc.amount_total)"/>
+                            </p>
+                        </div>
                   <div class="oe_structure"/>
 
                   <div t-if="not doc.signature" class="oe_structure"/>
