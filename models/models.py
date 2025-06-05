@@ -8,6 +8,18 @@ from collections import defaultdict
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    order_date_formatted = fields.Char(
+        compute='_compute_formatted_dates', string='Formatted Order Date', store=False
+    )
+    validity_date_formatted = fields.Char(
+        compute='_compute_formatted_dates', string='Formatted Expiration Date', store=False
+    )
+
+    def _compute_formatted_dates(self):
+        for record in self:
+            record.order_date_formatted = record.date_order.strftime('%d.%m.%Y') if record.date_order else ''
+            record.validity_date_formatted = record.validity_date.strftime('%d.%m.%Y') if record.validity_date else ''
+
 
     def subtract_discount_from_tax(self):
         if self.env.context.get('skip_subtract_discount_from_tax'):

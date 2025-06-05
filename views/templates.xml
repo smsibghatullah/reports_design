@@ -56,7 +56,7 @@
                               <t t-else="">
                                   <strong style="font-weight: 900;" >Date:</strong>
                               </t>
-                          <div t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}">2023-12-31</div>
+                          <div t-field="doc.order_date_formatted" t-options="{&quot;widget&quot;: &quot;date&quot;}"></div>
                       </div>
                       <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col" name="expiration_date">
                              <t t-if="doc.partner_id.lang == 'en_US'">
@@ -68,7 +68,7 @@
                               <t t-else="">
                                   <strong style="font-weight: 900;">Expiration:</strong>
                               </t>
-                          <div t-field="doc.validity_date">2023-12-31</div>
+                          <div t-field="doc.validity_date_formatted"></div>
                       </div>
                       <div t-if="doc.user_id.name" class="col">
                               <t t-if="doc.partner_id.lang == 'en_US'">
@@ -246,6 +246,19 @@
           </t>
 
          </template>
+
+        <template id="sh_amount_in_words.sh_amount_in_words_report_quotation_sales" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//div[@class='clearfix']" position="after">
+
+                <div class="mr32"> 
+                    <span t-if="doc.print_to_report==True">
+                        <span><strong style="font-weight: 900;">Amount : </strong></span> 				
+                        <span t-field="doc.amount_in_words"/>
+                    </span>
+                </div>
+
+            </xpath>
+        </template>	
 
       <template t-name="web.external_layout_standard">
               <div t-attf-class="header o_company_#{company.id}_layout" >
