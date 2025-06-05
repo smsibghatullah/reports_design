@@ -95,19 +95,19 @@
                           <tr>
                               <th name="th_description" style="font-weight: 900;" class="text-start">Description</th>
                               <th name="th_quantity" style="font-weight: 900;" class="text-center text-nowrap">Quantity</th>
-                              <th name="th_priceunit" style="font-weight: 900;" class="text-center text-nowrap">Unit Price</th>
+                                <t t-if="doc.partner_id.lang == 'en_US'">
+                                    <th name="th_priceunit" style="font-weight: 900;" class="text-center text-nowrap">Unit Price</th>
+                              </t>
+                              <t t-elif="doc.partner_id.lang == 'lv_LV'">
+                                  <th style="font-weight: 900;"  class="text-center text-nowrap"><span>Vienības Cena</span></th>
+                              </t>
+                              <t t-else="">
+                                   <th name="th_priceunit" style="font-weight: 900;" class="text-center text-nowrap">Unit Price</th>
+                              </t>
                               <th name="th_discount" style="font-weight: 900;" t-if="display_discount" class="text-center">
                                   <span>Disc.%</span>
                               </th>
-                               <t t-if="doc.partner_id.lang == 'en_US'">
-                                  <th style="font-weight: 900;" name="th_taxes" class="text-center">Taxes</th>
-                              </t>
-                              <t t-elif="doc.partner_id.lang == 'lv_LV'">
-                                  <th style="font-weight: 900;" class="text-center"><span>Vienības Cena</span></th>
-                              </t>
-                              <t t-else="">
-                                  <th style="font-weight: 900;" name="th_taxes" class="text-center">Taxes</th>
-                              </t>
+                              <th style="font-weight: 900;" name="th_taxes" class="text-center">Taxes</th>
                               <t t-if="doc.partner_id.lang == 'en_US'">
                                   <th style="font-weight: 900;" class="text-center"><span>Total Amount</span></th>
                               </t>
