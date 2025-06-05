@@ -30,7 +30,7 @@ class SaleOrder(models.Model):
                 taxes = line.tax_id.compute_all(price_after_discount, line.order_id.currency_id, 1, product=line.product_id, partner=line.order_id.partner_shipping_id)
 
                 line.update({
-                    'price_tax': sum(t.get('amount', 0.0) for t in taxes.get('taxes', [])),
+                    # 'price_tax': sum(t.get('amount', 0.0) for t in taxes.get('taxes', [])),
                     'price_total': taxes['total_included'],
                     'price_subtotal': taxes['total_excluded'],
                 })
