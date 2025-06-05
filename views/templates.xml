@@ -5,8 +5,8 @@
               <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
               <t t-set="forced_vat" t-value="doc.fiscal_position_id.foreign_vat"/> <!-- So that it appears in the footer of the report instead of the company VAT if it's set -->
               <t t-set="address">
-                  <div style="font-size: 18px" t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-                  <p style="font-size: 18px" t-if="doc.partner_id.vat">
+                  <div style="font-size: 12px" t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                  <p style="font-size: 12px" t-if="doc.partner_id.vat">
                       <t t-if="doc.company_id.account_fiscal_country_id.vat_label" t-out="doc.company_id.account_fiscal_country_id.vat_label"/>
                       <t t-else="">Tax ID</t>: <span t-field="doc.partner_id.vat"/>
                   </p>
@@ -28,7 +28,7 @@
                       <!--</t>-->
                   </t>
               </t>
-              <div class="page" style="font-size: 18px">
+              <div class="page" style="font-size: 12px">
                   <div class="oe_structure"/>
 
                   <t t-set="is_proforma" t-value="env.context.get('proforma', False) or is_pro_forma"/>
@@ -154,10 +154,10 @@
                                   </t>
                                   <t t-elif="line.display_type == 'line_section' or line.product_type == 'combo'">
                                      <td style="border: none; border-bottom: 1px solid #dee2e6;" name="td_section_line" colspan="99">
-                                        <span t-field="line.name" style="font-style: italic;">A section title</span>
+                                        <span t-field="line.name" style="font-style: italic;font-weight: none;">A section title</span>
                                     </td>
-                                      <t t-set="current_section" style="font-style: italic;" t-value="line"/>
-                                      <t t-set="current_subtotal" style="font-style: italic;" t-value="0"/>
+                                      <t t-set="current_section" style="font-style: italic;font-weight: none;" t-value="line"/>
+                                      <t t-set="current_subtotal" style="font-style: italic;font-weight: none;" t-value="0"/>
                                   </t>
                                   <t t-elif="line.display_type == 'line_note'">
                                       <td style="border: none; border-bottom: 1px solid #dee2e6;" name="td_note_line" colspan="99">
