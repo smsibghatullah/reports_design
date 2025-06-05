@@ -174,7 +174,7 @@
                            <div id="total"  class="row justify-content-end" style="margin-top: 30px;"  name="total">
                            <div class="col-5">
                                     <table class="table table-borderless" style="width: 100%; font-size: 18px;">
-                                        <tr>
+                                        <tr style="border: none; border-bottom: 1px solid #dee2e6;border-top: 1px solid black;">
                                             <td style="padding: 8px 10px;">
                                                 <strong style="font-weight: 900;">
                                                     <t t-if="lang == 'lv_LV'">Kopā</t>
@@ -188,7 +188,7 @@
                                         </tr>
 
                                         <t t-foreach="doc.get_aggregated_taxes().items()" t-as="tax_data">
-                                            <tr>
+                                            <tr style="border: none; border-bottom: 1px solid black;">
                                                 <td style="padding: 8px 10px;">
                                                     <strong><t t-esc="tax_data[0]"/></strong>
                                                 </td>
