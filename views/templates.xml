@@ -215,16 +215,7 @@
                             </div>
                             
                   </div>
-                   <div class="oe_structure mt-4">
-                            <p>
-                                <strong style="font-weight: 900;">
-                                    <t t-if="lang == 'lv_LV'">Summa vārdiem:</t>
-                                    <t t-elif="lang == 'en_US'">Amount in words:</t>
-                                    <t t-else="True"><t t-esc="_('Amount in words:')"/></t>
-                                </strong> 
-                                <t t-esc="doc.currency_id.with_context(lang=lang).amount_to_text(doc.amount_total)"/>
-                            </p>
-                        </div>
+                   
                   <div class="oe_structure"/>
 
                   <div t-if="not doc.signature" class="oe_structure"/>
