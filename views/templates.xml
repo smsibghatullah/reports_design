@@ -170,8 +170,8 @@
                           </t>
                       </tbody>
                   </table>
-                  <div class="clearfix "  name="so_total_summary">
-                           <div id="total"   class="row justify-content-end" style="margin-top: 30px;"  name="total">
+                  <div class="clearfix"  name="so_total_summary">
+                           <div id="total"  class="row justify-content-end" style="margin-top: 30px;"  name="total">
                            <div class="col-5">
                                     <table class="table table-borderless" style="width: 100%; font-size: 18px;">
                                         <tr>
