@@ -45,40 +45,40 @@
                           <div t-field="doc.client_order_ref">SO0000</div>
                       </div>
                       <div t-if="doc.date_order" class="col" name="informations_date">
-                          <strong t-if="is_proforma">Issued Date</strong>
-                          <strong t-elif="doc.state in ['draft', 'sent']">Quotation Date</strong>
+                          <!-- <strong t-if="is_proforma">Issued Date</strong> -->
+                          <!-- <strong t-elif="doc.state in ['draft', 'sent']">Quotation Date</strong> -->
                           <t t-if="doc.partner_id.lang == 'en_US'">
-                                  <strong >Date:</strong>
+                                  <strong style="font-weight: 900;" >Date:</strong>
                               </t>
                               <t t-elif="doc.partner_id.lang == 'lv_LV'">
-                                  <strong >Datums:</strong>
+                                  <strong style="font-weight: 900;" >Datums:</strong>
                               </t>
                               <t t-else="">
-                                  <strong >Date:</strong>
+                                  <strong style="font-weight: 900;" >Date:</strong>
                               </t>
                           <div t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}">2023-12-31</div>
                       </div>
                       <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col" name="expiration_date">
                              <t t-if="doc.partner_id.lang == 'en_US'">
-                                  <strong >Expiration:</strong>
+                                  <strong style="font-weight: 900;">Expiration:</strong>
                               </t>
                               <t t-elif="doc.partner_id.lang == 'lv_LV'">
-                                  <strong >Spēkā līdz:</strong>
+                                  <strong style="font-weight: 900;">Spēkā līdz:</strong>
                               </t>
                               <t t-else="">
-                                  <strong >Expiration:</strong>
+                                  <strong style="font-weight: 900;">Expiration:</strong>
                               </t>
                           <div t-field="doc.validity_date">2023-12-31</div>
                       </div>
                       <div t-if="doc.user_id.name" class="col">
                               <t t-if="doc.partner_id.lang == 'en_US'">
-                                  <strong >Salesperson:</strong>
+                                  <strong style="font-weight: 900;">Salesperson:</strong>
                               </t>
                               <t t-elif="doc.partner_id.lang == 'lv_LV'">
-                                  <strong >Pārdevējs:</strong>
+                                  <strong style="font-weight: 900;">Pārdevējs:</strong>
                               </t>
                               <t t-else="">
-                                  <strong >Salesperson:</strong>
+                                  <strong style="font-weight: 900;">Salesperson:</strong>
                               </t>
                           <div t-field="doc.user_id">Mitchell Admin</div>
                       </div>
@@ -190,7 +190,7 @@
                                         <t t-foreach="doc.get_aggregated_taxes().items()" t-as="tax_data">
                                             <tr >
                                                 <td style="padding: 8px 10px;">
-                                                    <strong><t t-esc="tax_data[0]"/></strong>
+                                                    <strong style="font-weight: 900;"><t t-esc="tax_data[0]"/></strong>
                                                 </td>
                                                 <td style="padding: 8px 10px;text-align: right;">
                                                     <span t-esc="tax_data[1]['amount']" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
