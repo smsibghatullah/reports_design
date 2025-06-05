@@ -171,38 +171,46 @@
                       </tbody>
                   </table>
                   <div class="clearfix" name="so_total_summary">
-                                <div id="total" class="row" name="total">
-                                    <div t-attf-class="#{'col-5' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
-                                        <table class="table table-sm">
-                                            <tr class="border-black o_subtotal" style="">
-                                                <td><strong>Subtotal</strong></td>
-                                                <td class="text-right">
-                                                    <span t-field="doc.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
-                                                </td>
-                                            </tr>
-                                            <!-- <t t-foreach="doc.get_aggregated_taxes().items()" t-as="tax_data">
-                                                <tr>
-                                                    <td>
-                                                        <strong>
-                                                            <t t-esc="tax_data[0]"/> 
-                                                            <span> <t t-esc="tax_data[1]['base']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/> </span>
-                                                        </strong>
-                                                    </td>
-                                                    <td class="text-right o_price_total">
-                                                        <span t-esc="tax_data[1]['amount']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
-                                                    </td>
-                                                </tr>
-                                            </t> -->
+                                <div class="col-5">
+                                <table class="table table-borderless" style="width: 100%; font-size: 18px;">
+                                    <tr>
+                                        <td style="padding: 8px 10px;">
+                                            <strong style="font-weight: 900;">
+                                                <t t-if="lang == 'lv_LV'">Kopā</t>
+                                                <t t-elif="lang == 'en_US'">Subtotal</t>
+                                                <t t-else="True"><t t-esc="_('Subtotal')"/></t>
+                                            </strong>
+                                        </td>
+                                        <td style="padding: 8px 10px;text-align: right;">
+                                            <span t-field="doc.amount_untaxed" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                        </td>
+                                    </tr>
 
-                                            <tr class="border-black o_total">
-                                                <td><strong>Total</strong></td>
-                                                <td class="text-right">
-                                                    <span t-field="doc.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
+                                    <!-- <t t-foreach="doc.get_aggregated_taxes().items()" t-as="tax_data">
+                                        <tr>
+                                            <td style="padding: 8px 10px;">
+                                                <strong><t t-esc="tax_data[0]"/></strong>
+                                            </td>
+                                            <td style="padding: 8px 10px;text-align: right;">
+                                                <span t-esc="tax_data[1]['amount']" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                            </td>
+                                        </tr>
+                                    </t> -->
+
+                                    <tr style="border-top: 2px solid black;">
+                                        <td style="padding: 10px 10px;">
+                                            <strong style="font-weight: 900;">
+                                                <t t-if="lang == 'lv_LV'">Summa apmaksai</t>
+                                                <t t-elif="lang == 'en_US'">Total</t>
+                                                <t t-else="True"><t t-esc="_('Total')"/></t>
+                                            </strong>
+                                        </td>
+                                        <td style="padding: 10px 10px;text-align: right;">
+                                            <span t-field="doc.amount_total" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                   </div>
                   <div class="oe_structure"/>
 
