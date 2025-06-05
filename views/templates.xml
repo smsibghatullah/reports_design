@@ -6,7 +6,7 @@
               <t t-set="forced_vat" t-value="doc.fiscal_position_id.foreign_vat"/> <!-- So that it appears in the footer of the report instead of the company VAT if it's set -->
               <t t-set="address">
                   <div style="font-size: 15px" t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-                  <p  style="font-size: 15px"  t-if="doc.partner_id.vat">
+                  <p style="font-size: 15px"  t-if="doc.partner_id.vat">
                       <t t-if="doc.company_id.account_fiscal_country_id.vat_label" t-out="doc.company_id.account_fiscal_country_id.vat_label"/>
                       <t t-else="">Tax ID</t>: <span t-field="doc.partner_id.vat"/>
                   </p>
@@ -95,19 +95,11 @@
                           <tr>
                               <th style="font-weight: 900;" name="th_description" class="text-start">Description</th>
                               <th style="font-weight: 900;" name="th_quantity" class="text-center text-nowrap">Quantity</th>
-                               <t t-if="doc.partner_id.lang == 'en_US'">
-                                    <th name="th_priceunit" style="font-weight: 900;" class="text-center text-nowrap">Unit Price</th>
-                              </t>
-                              <t t-elif="doc.partner_id.lang == 'lv_LV'">
-                                  <th name="th_priceunit"  style="font-weight: 900;"  class="text-center text-nowrap"><span>Vienības Cena</span></th>
-                              </t>
-                              <t t-else="">
-                                   <th name="th_priceunit" style="font-weight: 900;" class="text-center text-nowrap">Unit Price</th>
-                              </t>
+                              <th style="font-weight: 900;" name="th_priceunit" class="text-center text-nowrap">Unit Price</th>
                               <th style="font-weight: 900;" name="th_discount" t-if="display_discount" class="text-center">
                                   <span>Disc.%</span>
                               </th>
-                              <th name="th_taxes" style="font-weight: 900;" class="text-center">Taxes</th>
+                              <th style="font-weight: 900;" name="th_taxes" class="text-center">Taxes</th>
                               <t t-if="doc.partner_id.lang == 'en_US'">
                                   <th style="font-weight: 900;" class="text-center"><span>Total Amount</span></th>
                               </t>
