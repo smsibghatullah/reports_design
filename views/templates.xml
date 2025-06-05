@@ -247,18 +247,7 @@
 
          </template>
 
-        <template id="sh_amount_in_words.sh_amount_in_words_report_quotation_sales" inherit_id="sale.report_saleorder_document">
-            <xpath expr="//div[@class='clearfix']" position="after">
-
-                <div class="mr32"> 
-                    <span t-if="doc.print_to_report==True">
-                        <span><strong style="font-weight: 900;">Amount : </strong></span> 				
-                        <span t-field="doc.amount_in_words"/>
-                    </span>
-                </div>
-
-            </xpath>
-        </template>	
+    
 
       <template t-name="web.external_layout_standard">
               <div t-attf-class="header o_company_#{company.id}_layout" >
@@ -362,13 +351,13 @@
           <div class="mr32"> 
             <span t-if="doc.print_to_report==True">
             <t t-if="doc.partner_id.lang == 'en_US'">
-               <span><strong>Amount : </strong></span> 
+               <span><strong style="font-weight: 900;">Amount : </strong></span> 
             </t>
             <t t-elif="doc.partner_id.lang == 'lv_LV'">
-                <span><strong>Summa vārdiem : </strong></span> 
+                <span><strong style="font-weight: 900;">Summa vārdiem : </strong></span> 
             </t>
             <t t-else="">
-               <span><strong>Amount : </strong></span> 
+               <span><strong style="font-weight: 900;">Amount : </strong></span> 
             </t>
               				
                   <span t-field="doc.amount_in_words"/>
