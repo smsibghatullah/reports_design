@@ -172,6 +172,7 @@
                   </table>
                   <div class="clearfix" name="so_total_summary">
                            <div id="total"  class="col-5"  name="total">
+                           <div>
                                     <table class="table table-borderless" style="width: 100%; font-size: 18px;">
                                         <tr>
                                             <td style="padding: 8px 10px;">
@@ -210,6 +211,7 @@
                                             </td>
                                         </tr>
                                     </table>
+                                    </div>
                             </div>
                             
                   </div>
