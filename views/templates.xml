@@ -6,7 +6,7 @@
               <t t-set="forced_vat" t-value="doc.fiscal_position_id.foreign_vat"/> <!-- So that it appears in the footer of the report instead of the company VAT if it's set -->
               <t t-set="address">
                   <div style="font-size: 15px" t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-                  <p style="font-size: 15px" t-if="doc.partner_id.vat">
+                  <p  style="font-size: 15px"  t-if="doc.partner_id.vat">
                       <t t-if="doc.company_id.account_fiscal_country_id.vat_label" t-out="doc.company_id.account_fiscal_country_id.vat_label"/>
                       <t t-else="">Tax ID</t>: <span t-field="doc.partner_id.vat"/>
                   </p>
@@ -93,21 +93,21 @@
                       <!-- In case we want to repeat the header, remove "display: table-row-group" -->
                       <thead style="display: table-row-group">
                           <tr>
-                              <th name="th_description" style="font-weight: 900;" class="text-start">Description</th>
-                              <th name="th_quantity" style="font-weight: 900;" class="text-center text-nowrap">Quantity</th>
-                                <t t-if="doc.partner_id.lang == 'en_US'">
+                              <th style="font-weight: 900;" name="th_description" class="text-start">Description</th>
+                              <th style="font-weight: 900;" name="th_quantity" class="text-center text-nowrap">Quantity</th>
+                               <t t-if="doc.partner_id.lang == 'en_US'">
                                     <th name="th_priceunit" style="font-weight: 900;" class="text-center text-nowrap">Unit Price</th>
                               </t>
                               <t t-elif="doc.partner_id.lang == 'lv_LV'">
-                                  <th style="font-weight: 900;"  class="text-center text-nowrap"><span>Vienības Cena</span></th>
+                                  <th name="th_priceunit"  style="font-weight: 900;"  class="text-center text-nowrap"><span>Vienības Cena</span></th>
                               </t>
                               <t t-else="">
                                    <th name="th_priceunit" style="font-weight: 900;" class="text-center text-nowrap">Unit Price</th>
                               </t>
-                              <th name="th_discount" style="font-weight: 900;" t-if="display_discount" class="text-center">
+                              <th style="font-weight: 900;" name="th_discount" t-if="display_discount" class="text-center">
                                   <span>Disc.%</span>
                               </th>
-                              <th style="font-weight: 900;" name="th_taxes" class="text-center">Taxes</th>
+                              <th name="th_taxes" style="font-weight: 900;" class="text-center">Taxes</th>
                               <t t-if="doc.partner_id.lang == 'en_US'">
                                   <th style="font-weight: 900;" class="text-center"><span>Total Amount</span></th>
                               </t>
@@ -153,11 +153,11 @@
                                       </td>
                                   </t>
                                   <t t-elif="line.display_type == 'line_section' or line.product_type == 'combo'">
-                                     <td style="border: none; border-bottom: 1px solid #dee2e6;" name="td_section_line" colspan="99">
-                                        <span t-field="line.name" style="font-style: italic;font-weight: none;">A section title</span>
-                                    </td>
-                                      <t t-set="current_section" style="font-style: italic;font-weight: none;" t-value="line"/>
-                                      <t t-set="current_subtotal" style="font-style: italic;font-weight: none;" t-value="0"/>
+                                      <td style="border: none; border-bottom: 1px solid #dee2e6;" name="td_section_line" colspan="99">
+                                          <i t-field="line.name" style="font-weight: none;font-style: italic;">A section title</i>
+                                      </td>
+                                      <t t-set="current_section" style="font-weight: none;font-style: italic;" t-value="line"/>
+                                      <t t-set="current_subtotal" style="font-weight: none;font-style: italic;" t-value="0"/>
                                   </t>
                                   <t t-elif="line.display_type == 'line_note'">
                                       <td style="border: none; border-bottom: 1px solid #dee2e6;" name="td_note_line" colspan="99">
